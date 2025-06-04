@@ -12,3 +12,7 @@ def long_beep():
 
 def pause():
     time.sleep(BEEP_SOUND*7)
+
+if __name__ == "__main__":
+    short_beep()
+    long_beep()
