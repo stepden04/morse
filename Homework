@@ -1,0 +1,30 @@
+from morse import MORSE_LETTERS, LETTERS_MORSE
+
+def decrypt(morse: str) -> str:
+    message = ""
+    letters = []
+    chunks = morse.split(" ")
+    for t in chunks:
+        translated = MORSE_LETTERS.get(t, "?")
+        message += translated
+        letters.append(translated)
+    return "".join(letters)
+
+def encrypt(text: str) -> str:
+    text = text.upper()
+    morse_code = []
+    for char in text:
+        if char == " ":
+            morse_code.append("")
+        elif char in LETTERS_MORSE:
+            morse_code.append(LETTERS_MORSE[char])
+        else:
+            morse_code.append("?")
+    return " ".join(morse_code)
+
+def main():
+    print("Decrypted:", decrypt(".... . .-.. .-.. ---  .-- --- .-. .-.. -.."))
+    print("Encrypted:", encrypt("HELLO WORLD"))
+
+if __name__ == "__main__":
+    main()
