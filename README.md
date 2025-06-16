@@ -12,3 +12,5 @@ example:
 ```
 encrypt("Hello world") -> ".... . .-.. .-.. --- .-- --- .-. .-.. -.."
 ```
+---
+* 18/06 Add the long pause in between the words, ideally when we receive a message we should get the same one back but in uppercase
