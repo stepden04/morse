@@ -10,8 +10,11 @@ def short_beep():
 def long_beep():
     winsound.Beep(FREQ,BEEP_SOUND*3)
 
+def short_pause():
+    time.sleep(BEEP_SOUND/1000*3)
+
 def pause():
-    time.sleep(BEEP_SOUND*7/2000)
+    time.sleep(BEEP_SOUND*7/1000)
 
 def signal(morse: str):
     # if LETTERS_MORSE == .:
@@ -27,9 +30,10 @@ def signal(morse: str):
         if char == '-' :
             long_beep()
 
-        if char == ' ':
+        if char == '@':
             pause()
 
+        short_pause()
 if __name__ == "__main__":
     signal(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
     # short_beep()
