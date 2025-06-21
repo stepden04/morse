@@ -1,4 +1,5 @@
 from morse import *
+from sound import signal
 
 def decrypt(morse: str) -> str:
     message = ""
@@ -28,11 +29,28 @@ def encrypt(text: str) -> str:
     return " ".join(morse_code)
     
 def main():
-    msg = "Hello World"
-    morse_code = encrypt(msg)
-    text = decrypt(morse_code)
-    print(f"{msg} -> {morse_code}")
-    print(f"{morse_code} -> {text}")
+    print("(1) Morse to text")
+    print("(2) Text to morse")
+    choice = input("")
+    if choice == "1":
+        morse = input("Please insert your morse code here: ")
+        decoded_morse = decrypt(morse)
+        print(decoded_morse)
+
+    elif choice == "2":
+        text = input("Please insert your text here: ")
+        morse = encrypt(text)
+        print(morse)
+        option = input("Would you like sound [Y/n] ")
+        if option == "n":
+            pass
+        else:
+            signal(morse)
+
+        signal(morse) 
     
+    else:
+        print("Error please put in a valid choice.")
+    # [Y/n]
 if __name__ == "__main__":
     main()

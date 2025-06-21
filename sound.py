@@ -1,8 +1,8 @@
 import winsound
 import time
 
-FREQ = 500
-BEEP_SOUND = 150
+FREQ = 440
+BEEP_SOUND = 100
 
 def short_beep():
     winsound.Beep(FREQ, BEEP_SOUND)
@@ -33,7 +33,10 @@ def signal(morse: str):
         if char == '@':
             pause()
 
-        short_pause()
+        if char == ' ':
+            short_pause()
+
+
 if __name__ == "__main__":
     signal(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
     # short_beep()
